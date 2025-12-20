@@ -38,7 +38,7 @@ const About = () => {
               <p className="text-sm font-bold text-sky-500 uppercase tracking-widest">Contaminant Free</p>
             </div>
             <div>
-              <h3 className="text-4xl font-black text-blue-900 mb-2">10k+</h3>
+              <h3 className="text-4xl font-black text-blue-900 mb-2">10+</h3>
               <p className="text-sm font-bold text-sky-500 uppercase tracking-widest">Healthy Pets</p>
             </div>
             <div>
@@ -106,7 +106,7 @@ const About = () => {
       </section>
 
       {/* 4. THE TEAM - Single Expert Focus */}
-      <section className="py-24 bg-blue-950 rounded-t-[4rem]">
+      <section className="py-24 pb-1 bg-blue-950 rounded-t-[4rem]">
         <div className="container mx-auto px-6 text-center">
           <p className="text-sky-400 text-xs font-bold uppercase tracking-widest mb-4">Expertise You Can Trust</p>
           <h2 className="text-3xl md:text-5xl font-bold text-white mb-16">The Expert behind the bowl.</h2>
@@ -119,10 +119,10 @@ const About = () => {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
               />
             </div>
-            <h4 className="text-2xl font-bold text-white mb-2">Dr. Chris Nero</h4>
-            <p className="text-sky-400 text-sm font-bold uppercase tracking-widest mb-6">Lead Veterinary Scientist</p>
-            <p className="text-blue-100/60 text-sm leading-relaxed">
-              With over 15 years in pet nutrition, Dr. Nero leads our research into renal health and biological hydration.
+            <h4 className="text-2xl font-bold text-white mb-2">Chris Nero</h4>
+            <p className="text-sky-400 text-sm font-bold uppercase tracking-widest mb-6">Lead Animal Care Specialist</p>
+            <p className="text-blue-100/60 text-sm leading-relaxed ">
+              With more than 15 years in pet nutrition, Mr. Nero helps ensure our products support pet's kidney health and hydration.
             </p>
           </div>
         </div>

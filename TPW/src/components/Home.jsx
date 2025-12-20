@@ -417,7 +417,7 @@ const Home = () => {
               </h2>
 
               <p className="text-slate-500 text-lg max-w-xl mx-auto mb-10 leading-relaxed">
-                Join <span className="text-slate-900 font-semibold">10,000+ pet parents</span> who have upgraded their pets' water to laboratory standards.
+                Join <span className="text-slate-900 font-semibold">100+ pet parents</span> who have upgraded their pets' water to laboratory standards.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
