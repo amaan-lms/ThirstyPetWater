@@ -119,7 +119,7 @@ const About = () => {
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
               />
             </div>
-            <h4 className="text-2xl font-bold text-white mb-2">Chris Nero</h4>
+            <h4 className="text-2xl font-bold text-white mb-2">Mr. Chris Nero</h4>
             <p className="text-sky-400 text-sm font-bold uppercase tracking-widest mb-6">Lead Animal Care Specialist</p>
             <p className="text-blue-100/60 text-sm leading-relaxed ">
               With more than 15 years in pet nutrition, Mr. Nero helps ensure our products support pet's kidney health and hydration.
