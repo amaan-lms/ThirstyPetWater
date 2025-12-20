@@ -114,7 +114,7 @@ const About = () => {
           <div className="max-w-md mx-auto group">
             <div className="w-56 h-56 mx-auto mb-8 rounded-full overflow-hidden border-4 border-sky-500/30 group-hover:border-sky-400 transition-all duration-500 shadow-2xl shadow-sky-500/20">
               <img 
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?auto=format&fit=crop&q=80&w=400" 
+                src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png" 
                 alt="Dr. Chris Nero" 
                 className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" 
               />
