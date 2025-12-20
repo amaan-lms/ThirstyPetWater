@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import React from "react";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/logo.png";
+import logo from "../assets/logocrop.png";
+import text from "../assets/logotext.png";
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
@@ -41,18 +42,20 @@ const Navbar = () => {
                     <Link
                         to="/"
                         onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-                        className="flex items-center space-x-2 group"
+                        className="flex items-center  group"
                     >
-                        <div className="bg-white p-1.5 rounded-xl">
+                        <div>
                             <img
                                 src={logo}
                                 alt="Thirsty Pet Water Logo"
-                                className="w-8 h-8 object-contain"
+                                className="w-12 h-12 object-contain"
                             />
                         </div>
-                        <span className="text-2xl font-black tracking-tighter text-green-500">
-                            Thirsty<span className="text-sky-500">Pet</span>
-                        </span>
+                        <img
+                                src={text}
+                                alt="ThirstyPetWater "
+                                className="w-26 h-26 object-contain"
+                            />
                     </Link>
 
                     {/* Desktop Menu */}

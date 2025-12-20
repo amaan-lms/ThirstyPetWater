@@ -1,33 +1,31 @@
 import React from 'react';
 import {
   Droplets, Heart, ShieldCheck, Target, Eye, ArrowRight,
-  Truck, Zap, FlaskConical, LifeBuoy, Gift, RotateCcw, Star, Quote
+  Truck, Zap, FlaskConical, LifeBuoy, Gift, RotateCcw, Star, Quote, Milk, Waves
 } from 'lucide-react';
 import { Link } from "react-router-dom";
-
 import { motion } from 'framer-motion';
 
+
+
+
+
+
 const Home = () => {
-  const services = [
+  const petServices = [
     {
-      icon: <Truck className="text-sky-500" size={32} />,
-      title: "Subscription Delivery",
-      desc: "Fresh, pH-balanced water delivered to your doorstep every month so you never run out."
+      title: "Pure Water Containers",
+      desc: "Fresh, multi-stage filtered drinking water delivered in bulk containers. The perfect pH-balanced hydration for home bowls serving dogs, cats, and birds.",
+      image: "https://images.unsplash.com/photo-1581888227599-779811939961?auto=format&fit=crop&q=80&w=800", // Dog drinking from bowl
+      icon: <Droplets className="w-6 h-6" />,
+      tag: "Home Delivery"
     },
     {
-      icon: <FlaskConical className="text-sky-500" size={32} />,
-      title: "Water Testing Kits",
-      desc: "Not sure about your tap water? Use our professional-grade kits to test for toxins at home."
-    },
-    {
-      icon: <Zap className="text-sky-500" size={32} />,
-      title: "Smart Dispensers",
-      desc: "Automated hydration systems that track your pet's intake and notify you via our app."
-    },
-    {
-      icon: <LifeBuoy className="text-sky-500" size={32} />,
-      title: "Vet-Led Support",
-      desc: "Access to hydration consultations with pet nutritionists to optimize your pet's diet."
+      title: "On-the-Go Pet Water",
+      desc: "Pure mineral water supplied in travel-sized portions. Ensures your pets have access to safe, contaminant-free drinking water during walks and travel.",
+      image: "https://images.unsplash.com/photo-1534361960057-19889db9621e?auto=format&fit=crop&q=80&w=800", // Dog drinking on a walk
+      icon: <Waves className="w-6 h-6" />,
+      tag: "Travel Supply"
     }
   ];
 
@@ -35,8 +33,7 @@ const Home = () => {
     <div id="home" className="min-h-screen bg-white text-slate-800 font-sans selection:bg-sky-100">
 
       {/* 1. REDESIGNED HERO SECTION (Cinematic Wide Layout) */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-white pt-24 pb-16">
-        {/* Background Accents */}
+      <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-gradient-to-b from-[#f0f9ff] via-[#f8fafb] to-[#c7e0ec] pt-24 pb-16">        {/* Background Accents */}
         <div className="absolute inset-0 bg-[radial-gradient(50%_50%_at_50%_50%,rgba(56,189,248,0.06)_0%,rgba(255,255,255,0)_100%)]"></div>
 
         <div className="container mx-auto px-6 relative z-10">
@@ -53,7 +50,7 @@ const Home = () => {
                 <span className="text-[10px] font-bold text-sky-600 uppercase tracking-[0.2em]">Vet-Approved Formula</span>
               </div> */}
 
-              <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-slate-900 tracking-tight mb-6">
+              <h1 className="text-5xl md:text-6xl font-extrabold leading-tight text-blue-950 tracking-tight mb-6">
                 The Purest Drop for Your <span className="text-sky-500">Best Friend.</span>
               </h1>
 
@@ -84,38 +81,17 @@ const Home = () => {
               transition={{ duration: 1 }}
             >
               {/* WIDE Image Container */}
-              <div className="relative z-10 rounded-[2rem] overflow-hidden border-[8px] border-white shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] group aspect-[16/10] md:aspect-[3/2]">
+              <div className="relative z-10 rounded-[2rem] overflow-hidden  shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] group aspect-[16/10] md:aspect-[3/2]">
                 <img
                   src="https://images.unsplash.com/photo-1548191265-cc70d3d45ba1?auto=format&fit=crop&q=80&w=1200"
                   alt="Wide cinematic pet hydration"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-1000"
                 />
 
-                {/* Subtle Glass Overlay Badge */}
-                {/* <div className="absolute bottom-6 left-6 bg-white/80 backdrop-blur-md px-5 py-3 rounded-2xl border border-white/50 shadow-xl">
-                  <div className="flex items-center gap-3">
-                    <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
-                    <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">Live Laboratory Testing</span>
-                  </div>
-                </div> */}
+
               </div>
 
-              {/* Floating Health Metric */}
-              {/* <motion.div
-                animate={{ y: [0, -10, 0] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-6 -right-4 md:right-12 z-20 bg-white p-4 rounded-2xl shadow-2xl border border-sky-50"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="bg-sky-500 p-2 rounded-lg text-white">
-                    <Droplets size={20} />
-                  </div>
-                  <div>
-                    <p className="text-[10px] font-bold text-slate-400 uppercase">Health Score</p>
-                    <p className="text-lg font-black text-slate-900">98/100</p>
-                  </div>
-                </div>
-              </motion.div> */}
+
 
               {/* Background Blur Blobs */}
               <div className="absolute -top-20 -right-20 w-80 h-80 bg-sky-100 rounded-full mix-blend-multiply filter blur-3xl opacity-40"></div>
@@ -127,28 +103,66 @@ const Home = () => {
       </section>
 
       {/* 2. SERVICES SECTION (NEW) */}
-      <section className="py-16 bg-slate-50 relative">
-        <div className="container mx-auto px-6">
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 tracking-tight">More than just a bottle</h2>
-            <p className="text-lg text-slate-500 uppercase tracking-widest font-medium">Our Specialized Services</p>
+      <section className="py-20 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
+        {/* Soft blue decorative blobs */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl -mr-48 -mt-48" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-sky-100/50 rounded-full blur-3xl -ml-48 -mb-48" />
+
+        <div className="container mx-auto px-6 relative z-10">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-4xl font-extrabold text-blue-900 mb-6 tracking-tight">
+              Premium Hydration for Every Pet
+            </h2>
+            <div className="flex items-center justify-center gap-4 text-blue-600 font-semibold uppercase tracking-widest text-xs">
+              <span>Dogs</span>
+              <span className="w-1 h-1 bg-blue-300 rounded-full"></span>
+              <span>Cats</span>
+              <span className="w-1 h-1 bg-blue-300 rounded-full"></span>
+              <span>Birds</span>
+              <span className="w-1 h-1 bg-blue-300 rounded-full"></span>
+              <span>All Pets</span>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
+          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            {petServices.map((service, index) => (
               <motion.div
                 key={index}
-                whileHover={{ y: -10 }}
-                className="p-8 rounded-[2rem] bg-slate-200/40 border border-blue-100 hover:bg-white hover:shadow-2xl hover:shadow-sky-100 transition-all duration-300 group"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                whileHover={{ y: -6 }}
+                className="group bg-white rounded-[3rem] overflow-hidden shadow-2xl shadow-blue-100 border border-blue-50 flex flex-col"
               >
-                <div className="mb-6 p-4 inline-block rounded-2xl bg-white shadow-sm group-hover:bg-sky-500 group-hover:text-white transition-colors">
-                  {React.cloneElement(service.icon, { className: "group-hover:text-white transition-colors" })}
+                {/* Pet Image Container */}
+                <div className="relative h-72 overflow-hidden">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-6 left-6">
+                    <span className="bg-sky-500 text-white text-xs font-bold px-4 py-2 rounded-full shadow-lg">
+                      {service.tag}
+                    </span>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-                <p className="text-slate-600 text-sm leading-relaxed">{service.desc}</p>
+
+                {/* Text Content */}
+                <div className="p-10">
+                  <div className="mb-6 inline-flex items-center justify-center w-12 h-12 rounded-xl bg-sky-100 text-sky-600 group-hover:bg-sky-600 group-hover:text-white transition-all duration-300">
+                    {service.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-800 mb-4">{service.title}</h3>
+                  <p className="text-slate-500 leading-relaxed mb-8">
+                    {service.desc}
+                  </p>
+                  <div className="h-1 w-12 bg-sky-200 group-hover:w-full transition-all duration-500 rounded-full" />
+                </div>
               </motion.div>
             ))}
           </div>
+
         </div>
       </section>
 
@@ -237,7 +251,7 @@ const Home = () => {
       </section>
 
       {/* 4. MISSION & VISION: REDESIGNED LAYOUT */}
-      <section className="py-16 bg-slate-50">
+      <section className="py-16 bg-blue-50">
         <div className="container mx-auto px-6">
           <div className="max-w-5xl mx-auto">
 
@@ -245,7 +259,7 @@ const Home = () => {
             <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
               <div className="max-w-md">
                 <p className="text-sky-500 text-[10px] font-bold uppercase tracking-[0.3em] mb-3">Core Values</p>
-                <h2 className="text-3xl md:text-4xl font-extrabold text-slate-900 tracking-tight">
+                <h2 className="text-3xl md:text-4xl font-extrabold text-blue-900 tracking-tight">
                   Why we do what we do.
                 </h2>
               </div>
@@ -275,9 +289,7 @@ const Home = () => {
                     To revolutionize pet wellness by providing accessible, <span className="text-sky-600 font-medium">ultra-pure hydration solutions</span>. We aim to prevent kidney issues and improve the longevity of every pet through biological precision.
                   </p>
 
-                  {/* <div className="mt-10 flex items-center gap-2 text-sky-500 font-bold text-xs uppercase tracking-widest">
-              Impact Report 2024 <ArrowRight size={14} />
-            </div> */}
+
                 </div>
               </motion.div>
 
@@ -300,19 +312,12 @@ const Home = () => {
                     To become the global gold standard in pet nutrition, where every pet owner understands that <span className="text-slate-900 font-semibold italic underline decoration-sky-300 underline-offset-4">true health starts</span> with a single drop of clean, balanced water.
                   </p>
 
-                  {/* <div className="mt-10 flex items-center gap-2 text-slate-400 font-bold text-xs uppercase tracking-widest">
-              Our Roadmap <ArrowRight size={14} />
-            </div> */}
+
                 </div>
               </motion.div>
             </div>
 
-            {/* Subtle Bottom Trust Bar */}
-            {/* <div className="mt-12 flex flex-wrap justify-center items-center gap-x-12 gap-y-6 opacity-40 grayscale group-hover:grayscale-0 transition-all duration-700">
-              <span className="font-black text-slate-900 text-lg tracking-tighter italic">VET-SCIENCE</span>
-              <span className="font-black text-slate-900 text-lg tracking-tighter italic">PURE-DROP</span>
-              <span className="font-black text-slate-900 text-lg tracking-tighter italic">PET-LABS</span>
-            </div> */}
+
           </div>
         </div>
       </section>
@@ -378,7 +383,7 @@ const Home = () => {
                   "Luna used to be so picky with her water bowl. Now she actually waits for the delivery! Her coat is shinier, and she has so much more energy during our morning walks."
                 </p>
                 <div className="flex items-center gap-4">
-                 <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 font-bold">AN</div>
+                  <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 font-bold">AN</div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">Anonymous </h4>
                     <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Verified Pet Parent</p>
