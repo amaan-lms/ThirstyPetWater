@@ -1,11 +1,57 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, MessageSquare, Send, Clock, Droplets } from 'lucide-react';
+import {
+  Mail,
+  Phone,
+  MapPin,
+  MessageSquare,
+  Send,
+  Clock,
+  Droplets,
+} from 'lucide-react';
 
 const Contact = () => {
+  const [result, setResult] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setLoading(true);
+    setResult('');
+
+    const formData = new FormData(event.target);
+    formData.append(
+      'access_key',
+      'a0749fee-25b3-4cc8-912f-46be860d59d4'
+    );
+
+    try {
+      const response = await fetch(
+        'https://api.web3forms.com/submit',
+        {
+          method: 'POST',
+          body: formData,
+        }
+      );
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult('Message sent successfully ✅');
+        event.target.reset();
+      } else {
+        setResult('Something went wrong ❌');
+      }
+    } catch (error) {
+      setResult('Submission failed ❌');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="bg-white">
-      {/* 1. HERO SECTION - Unified with About & Testimonials */}
+      {/* HERO */}
       <section className="relative pt-24 pb-20 overflow-hidden bg-sky-50">
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-3xl">
@@ -19,33 +65,47 @@ const Contact = () => {
               </p>
               <h1 className="text-5xl md:text-7xl font-extrabold text-blue-950 leading-tight tracking-tighter mb-8">
                 How can we <br />
-                <span className="text-sky-400 font-medium italic">help your pet?</span>
+                <span className="text-sky-400 font-medium italic">
+                  help your pet?
+                </span>
               </h1>
               <p className="text-lg text-slate-600 leading-relaxed">
-                Have questions about our filtration science or your subscription?
-                Our veterinary support team is here to ensure your dogs, cats, and birds stay
-                perfectly hydrated.
+                Have questions about our filtration science or your
+                subscription? Our veterinary support team is here to
+                help.
               </p>
             </motion.div>
           </div>
         </div>
-        {/* Signature decorative element */}
         <div className="absolute top-0 right-0 w-1/3 h-full bg-blue-100/50 rounded-l-[20rem] -z-0 hidden lg:block" />
       </section>
 
-      {/* 2. MAIN CONTENT SECTION */}
+      {/* MAIN */}
       <section className="py-24 bg-white">
         <div className="container mx-auto px-6">
           <div className="grid lg:grid-cols-12 gap-12 items-start">
-            
-            {/* LEFT: CONTACT FORM */}
+
+            {/* FORM */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               className="lg:col-span-7 bg-sky-50/50 rounded-[3rem] p-8 md:p-12 border border-sky-100"
             >
-              <form className="space-y-6">
+              <form onSubmit={onSubmit} className="space-y-6">
+                
+                {/* Hidden fields */}
+                <input
+                  type="hidden"
+                  name="subject"
+                  value="New Contact Form Submission"
+                />
+                <input
+                  type="checkbox"
+                  name="botcheck"
+                  className="hidden"
+                />
+
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label className="block text-xs font-bold text-blue-900 uppercase tracking-widest mb-3">
@@ -53,16 +113,21 @@ const Contact = () => {
                     </label>
                     <input
                       type="text"
+                      name="name"
+                      required
                       placeholder="John Doe"
                       className="w-full bg-white border border-sky-100 rounded-xl px-5 py-4 focus:outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-500/5 transition-all"
                     />
                   </div>
+
                   <div>
                     <label className="block text-xs font-bold text-blue-900 uppercase tracking-widest mb-3">
                       Email Address
                     </label>
                     <input
                       type="email"
+                      name="email"
+                      required
                       placeholder="john@example.com"
                       className="w-full bg-white border border-sky-100 rounded-xl px-5 py-4 focus:outline-none focus:border-sky-500 focus:ring-4 focus:ring-sky-500/5 transition-all"
                     />
@@ -73,7 +138,10 @@ const Contact = () => {
                   <label className="block text-xs font-bold text-blue-900 uppercase tracking-widest mb-3">
                     Subject
                   </label>
-                  <select className="w-full bg-white border border-sky-100 rounded-xl px-5 py-4 focus:outline-none focus:border-sky-500 transition-all appearance-none text-slate-600">
+                  <select
+                    name="topic"
+                    className="w-full bg-white border border-sky-100 rounded-xl px-5 py-4 focus:outline-none focus:border-sky-500 transition-all appearance-none text-slate-600"
+                  >
                     <option>General Inquiry</option>
                     <option>Subscription Help</option>
                     <option>Water Science & Lab Reports</option>
@@ -86,17 +154,31 @@ const Contact = () => {
                     Message
                   </label>
                   <textarea
+                    name="message"
                     rows="5"
+                    required
                     placeholder="Tell us about your pet's needs..."
                     className="w-full bg-white border border-sky-100 rounded-xl px-5 py-4 focus:outline-none focus:border-sky-500 transition-all resize-none"
                   />
                 </div>
 
-                <button className="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 active:scale-95">
-                  <Send size={18} /> Send Message
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-slate-900 text-white py-5 rounded-2xl font-bold flex items-center justify-center gap-3 hover:bg-blue-700 transition-all shadow-xl shadow-blue-100 active:scale-95 disabled:opacity-70"
+                >
+                  <Send size={18} />
+                  {loading ? 'Sending...' : 'Send Message'}
                 </button>
+
+                {result && (
+                  <p className="text-sm text-center mt-4 text-slate-700">
+                    {result}
+                  </p>
+                )}
               </form>
             </motion.div>
+
 
             {/* RIGHT: CONTACT INFO */}
             <motion.div
@@ -154,7 +236,7 @@ const Contact = () => {
               <div className="p-8 rounded-[3rem] bg-slate-900 text-white relative overflow-hidden shadow-2xl">
                 <div className="absolute top-0 right-0 w-32 h-32 bg-sky-500/10 rounded-full blur-3xl"></div>
                 <div className="bg-white/10 w-12 h-12 rounded-xl flex items-center justify-center mb-6">
-                    <MapPin className="text-sky-400" size={24} />
+                  <MapPin className="text-sky-400" size={24} />
                 </div>
                 <h4 className="text-xl font-bold mb-2">San Francisco HQ</h4>
                 <p className="text-sky-200/60 text-sm leading-relaxed mb-6">
@@ -163,7 +245,7 @@ const Contact = () => {
                   San Francisco, CA 94103
                 </p>
                 <div className="flex items-center gap-2 text-sky-400 text-xs font-bold uppercase tracking-widest">
-                    <Droplets size={14} /> Global Distribution
+                  <Droplets size={14} /> Global Distribution
                 </div>
               </div>
             </motion.div>

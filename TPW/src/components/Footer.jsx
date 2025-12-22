@@ -5,6 +5,7 @@ import {
   Instagram,
   Facebook,
   X,
+  Linkedin,
   Mail,
   Phone,
   MapPin,
@@ -49,15 +50,15 @@ const Footer = () => {
             <div className="flex gap-4">
               <SocialIcon
                 icon={<Instagram size={20} />}
-                href="https://www.instagram.com"
+                href="https://www.instagram.com/thirstypetwater/"
               />
               <SocialIcon
                 icon={<Facebook size={20} />}
-                href="https://www.facebook.com"
+                href="https://www.facebook.com/thirstypet/"
               />
               <SocialIcon
-                icon={<X size={20} />}
-                href="https://x.com"
+                icon={<Linkedin size={20} />}
+                href="https://linkedin.com"
               />
             </div>
           </div>
